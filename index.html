@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Hyle Studio</title>
     
 <script type="module">
@@ -23,16 +23,37 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
             height: 100%;
             margin: 0;
             overflow: hidden;
+            background: #090b0f;
         }
 
         #hyle_canvas {
             width: 100vw;
+            width: 100dvw;
             height: 100vh;
+            height: 100svh;
+            height: var(--hyle-viewport-height, 100dvh);
             display: block;
             touch-action: none;
             user-select: none;
         }
     </style>
+    <script>
+        (() => {
+            const updateViewportHeight = () => {
+                const viewport = window.visualViewport;
+                const height = viewport ? viewport.height : window.innerHeight;
+                document.documentElement.style.setProperty(
+                    "--hyle-viewport-height",
+                    `${height}px`,
+                );
+            };
+
+            updateViewportHeight();
+            window.addEventListener("resize", updateViewportHeight);
+            window.visualViewport?.addEventListener("resize", updateViewportHeight);
+            window.visualViewport?.addEventListener("scroll", updateViewportHeight);
+        })();
+    </script>
 <link rel="modulepreload" href="/hyle-viewer/hyle-studio-42d11b319ae3ac21.js" crossorigin="anonymous" integrity="sha384-NZSvKTO5bgfCoH91VZqOgXXHsehnP6MwxswyBlfZFELa9cp6tZKcm+Yo04aBqrDJ"><link rel="preload" href="/hyle-viewer/hyle-studio-42d11b319ae3ac21_bg.wasm" crossorigin="anonymous" integrity="sha384-co+2U21yQHU2qzPTCLrTaoG199rG4BkXVIPAd0pVjBNw+3mXU2LBk88lyk/VoP6W" as="fetch" type="application/wasm"></head>
 <body>
 <canvas id="hyle_canvas"></canvas>
