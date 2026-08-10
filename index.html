@@ -6,8 +6,8 @@
     <title>Hyle Studio</title>
     
 <script type="module">
-import init, * as bindings from '/hyle-viewer/hyle-studio-53361fcd511967fa.js';
-const wasm = await init({ module_or_path: '/hyle-viewer/hyle-studio-53361fcd511967fa_bg.wasm' });
+import init, * as bindings from '/hyle-viewer/hyle-studio-5cfac8a58038b17.js';
+const wasm = await init({ module_or_path: '/hyle-viewer/hyle-studio-5cfac8a58038b17_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -54,7 +54,7 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
             window.visualViewport?.addEventListener("scroll", updateViewportHeight);
         })();
     </script>
-<link rel="modulepreload" href="/hyle-viewer/hyle-studio-53361fcd511967fa.js" crossorigin="anonymous" integrity="sha384-dW5g1AhUr5nzjvIiuzYBTo5QMOgFj8BXkiWGroHk/pPk8HrWa8P0Fmpot/gTbehT"><link rel="preload" href="/hyle-viewer/hyle-studio-53361fcd511967fa_bg.wasm" crossorigin="anonymous" integrity="sha384-6b1j9RW2qetJcG9jwmFeVQNTls9R+OHxPdph8TktnOR44WNNLZ3aDR6CXzAf3Fou" as="fetch" type="application/wasm"></head>
+<link rel="modulepreload" href="/hyle-viewer/hyle-studio-5cfac8a58038b17.js" crossorigin="anonymous" integrity="sha384-dW5g1AhUr5nzjvIiuzYBTo5QMOgFj8BXkiWGroHk/pPk8HrWa8P0Fmpot/gTbehT"><link rel="preload" href="/hyle-viewer/hyle-studio-5cfac8a58038b17_bg.wasm" crossorigin="anonymous" integrity="sha384-02ikS056lZNQbRtjVhq2TBSi+z9dckRYYQb93mBhJO9r5XULCzqKAu9y2yikTzyf" as="fetch" type="application/wasm"></head>
 <body>
 <canvas id="hyle_canvas"></canvas>
 </body>
